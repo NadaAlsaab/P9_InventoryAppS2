@@ -14,14 +14,12 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.android.p9.data.BookCotracts.booksEntry;
@@ -92,12 +90,10 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         suppPhoneEditText = findViewById(R.id.edit_phone);
         suppEmailEditText = findViewById(R.id.edit_mail);
 
-
         bookEditText.setOnTouchListener(touchListener);
         suppEditText.setOnTouchListener(touchListener);
         priceEditText.setOnTouchListener(touchListener);
         quantityEditText.setOnTouchListener(touchListener);
-
 
         quantityIncrement.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,7 +135,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         int quantity = 0;
         int changedRows;
         int phone = 0;
-        String email = "";
 
         String bookString = bookEditText.getText().toString().trim();
         String suppString = suppEditText.getText().toString().trim();

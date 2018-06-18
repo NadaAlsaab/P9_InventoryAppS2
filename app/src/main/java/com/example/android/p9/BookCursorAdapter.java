@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.android.p9.data.BookCotracts.booksEntry;
 
 class BookCursorAdapter extends CursorAdapter {
@@ -35,7 +34,6 @@ class BookCursorAdapter extends CursorAdapter {
         final TextView quantityView = view.findViewById(R.id.book_quantity);
         Button saleBtn = view.findViewById(R.id.sell);
 
-
         int nameIndex = cursor.getColumnIndex(booksEntry.COLUMN_BOOKS_NAME);
         int supplierIndex = cursor.getColumnIndex(booksEntry.COLUMN_SUPPLIER);
         int quantityIndex = cursor.getColumnIndex(booksEntry.COLUMN_QUANTITY);
@@ -43,15 +41,13 @@ class BookCursorAdapter extends CursorAdapter {
 
         String name = cursor.getString(nameIndex);
         String supplier = cursor.getString(supplierIndex);
-        String quant = cursor.getString(quantityIndex);
+        String quantity = cursor.getString(quantityIndex);
         String price = cursor.getString(priceIndex);
-
 
         nameView.setText(name);
         suppView.setText(supplier);
         priceView.setText(price);
-        quantityView.setText(quant);
-
+        quantityView.setText(quantity);
 
         int index = cursor.getColumnIndex(booksEntry._ID);
         int id = cursor.getInt(index);
@@ -69,7 +65,6 @@ class BookCursorAdapter extends CursorAdapter {
                     Toast.makeText(context, context.getString(R.string.no_more_books),
                             Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
     }

@@ -34,11 +34,12 @@
     <string name="cancel">Cancel</string>
     <string name="discard">Discard</string>
     <string name="delete_all">Delete All Books</string>
-    <string name="continue_edit">Continue Edit</string>
+    <string name="continue_edit">Continue</string>
     <string name="sell">Sell</string>
 
     <string name="no_more_books">No more books to sell!</string>
 
+    <string name="insert_new_book_instruction">Click plus button to add a new book</string>
 
 
 </resources>

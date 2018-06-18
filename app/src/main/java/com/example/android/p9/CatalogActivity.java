@@ -10,14 +10,11 @@ import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
 import com.example.android.p9.data.BookDbHelper;
 import com.example.android.p9.data.BookCotracts.booksEntry;
 
@@ -37,7 +34,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalog);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,20 +45,19 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
 
         helper = new BookDbHelper(this);
 
-        ListView itemlistView = findViewById(R.id.list);
+        ListView itemListView = findViewById(R.id.list);
         View emptyView = findViewById(R.id.empty_view);
-        itemlistView.setEmptyView(emptyView);
+        itemListView.setEmptyView(emptyView);
 
         cursorAdapter = new BookCursorAdapter(this, null);
-        itemlistView.setAdapter(cursorAdapter);
+        itemListView.setAdapter(cursorAdapter);
 
-
-        itemlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        itemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(CatalogActivity.this, EditorActivity.class);
-                Uri currentItemUri = ContentUris.withAppendedId(booksEntry.CONTENT_URI, id);
-                intent.setData(currentItemUri);
+                Uri currentBookUri = ContentUris.withAppendedId(booksEntry.CONTENT_URI, id);
+                intent.setData(currentBookUri);
                 startActivity(intent);
 
             }
@@ -114,5 +110,4 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
     private void deleteAllItems() {
         int deletedRows = getContentResolver().delete(booksEntry.CONTENT_URI, null, null);
     }
-
 }
